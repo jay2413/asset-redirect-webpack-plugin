@@ -12,6 +12,7 @@ new redirectAssetPathPlugin('../resources/node_modules/ag-grid-ng2/**/*.js', '..
 
 # Output
  
+ ```
  Asset redirected [  ../resources/node_modules/@angular/**/*.js  ]  ..\resources\node_modules\@angular\common\bundles\common.umd.min.js  =>  assets\js\angular\common\bundles\common.umd.min.js 
  Asset redirected [  ../resources/node_modules/@angular/**/*.js  ]  ..\resources\node_modules\@angular\compiler\bundles\compiler.umd.min.js  =>  assets\js\angular\compiler\bundles\compiler.umd.min.js 
  Asset redirected [  ../resources/node_modules/@angular/**/*.js  ]  ..\resources\node_modules\@angular\core\bundles\core.umd.min.js  =>  assets\js\angular\core\bundles\core.umd.min.js 
@@ -38,3 +39,4 @@ new redirectAssetPathPlugin('../resources/node_modules/ag-grid-ng2/**/*.js', '..
  Asset redirected [  ../resources/node_modules/ag-grid-ng2/**/*.js  ]  ..\resources\node_modules\ag-grid-ng2\main.js  =>  assets\js\ag-grid-ng2\main.js 
  Asset deleted [  dummy.*  ]  dummy.bundle.js  =>  /dev/null 
  Asset deleted [  **/webpack.dummy*  ]  assets\main\ts\bundles\webpack.dummy.js  =>  /dev/null
+```
