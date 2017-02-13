@@ -36,7 +36,9 @@ const colors = {
 function redirectAssetPathPlugin(pattern, oldPathPrefix, newPathPrefix) {
   this.pattern = pattern || '*';
   this.newPathPrefix = newPathPrefix || '/dev/null';
-  this.leftCutLength = oldPathPrefix ? oldPathPrefix.length || 0 : 0;
+  this.oldPathPrefix = oldPathPrefix || '';
+  if (oldPathPrefix instanceof RegExp)
+    this.oldPathPrefix = new RegExp(oldPathPrefix.source.replace(/(\\\\)|(\/)/g, process.platform == 'win32' ? '\\\\' : '\/'));
 
   this.isDeleteAsset = function (newPathPrefix) {
     var destination = newPathPrefix.toLowerCase();
@@ -60,7 +62,7 @@ redirectAssetPathPlugin.prototype.apply = function (compiler) {
           ))
           continue;
       var asset = compilation.assets[filename];
-      var fixedFilenameName = this.consolidateSlashes(this.newPathPrefix + filename.substr(this.leftCutLength));
+      var fixedFilenameName = this.consolidateSlashes(filename.replace(this.oldPathPrefix, this.newPathPrefix));
       delete compilation.assets[filename];
       if (this.isDeleteAsset(this.newPathPrefix)) {
         console.log(colors.Reset, 'Asset deleted [', colors.fg.Blue, this.pattern, colors.Reset, ']', colors.fg.Yellow, filename, colors.Reset, '=>', colors.fg.Red, this.newPathPrefix, colors.Reset);
