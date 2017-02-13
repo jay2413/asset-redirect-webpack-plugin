@@ -75,4 +75,4 @@ redirectAssetPathPlugin.prototype.apply = function (compiler) {
   }.bind(this));
 };
 
-exports = redirectAssetPathPlugin;
+module.exports = redirectAssetPathPlugin;
