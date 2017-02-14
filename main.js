@@ -48,11 +48,6 @@ function RedirectAssetPlugin(rules) {
     };
 
     this.redirectAsset = function (filename, compilation, rule, logging) {
-        rule.to = rule.to || '/dev/null';
-        rule.from = rule.from || '';
-        if (rule.from instanceof RegExp)
-            rule.from = new RegExp(rule.from.source.replace(/(\\\\)|(\/)/g, process.platform == 'win32' ? '\\\\' : '\/'));
-
         var asset = compilation.assets[filename];
         var fixedFilenameName = this.consolidateSlashes(filename.replace(rule.from, rule.to));
         var pattern = rule.glob ? rule.glob : rule.from;
@@ -76,6 +71,14 @@ RedirectAssetPlugin.prototype.apply = function (compiler) {
         var deletedCount = 0;
 
         this.rules.forEach(function (rule) {
+
+            // Auto correct rule
+            rule.to = rule.to || '/dev/null';
+            rule.from = rule.from || '';
+            if (rule.from instanceof RegExp)
+                rule.from = new RegExp(rule.from.source.replace(/(\\\\)|(\\\/)/g, process.platform == 'win32' ? '\\\\' : '\/'));
+
+            // Apply rule
             for (var filename in compilation.assets) {
                 if (rule.glob && !minimatch(filename, rule.glob,
                    {
@@ -84,7 +87,7 @@ RedirectAssetPlugin.prototype.apply = function (compiler) {
                    }
                    ))
                    continue;
-                if ((rule.from instanceof RegExp) && !rule.from.test(filename))
+                if (rule.from instanceof RegExp && !rule.from.test(filename))
                    continue;
                 this.redirectAsset(filename, compilation, rule, compiler.options.stats.assets) ? redirectedCount++ : deletedCount++;
             }
