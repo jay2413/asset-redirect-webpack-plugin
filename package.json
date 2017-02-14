@@ -1,6 +1,6 @@
 {
   "name": "asset-redirect-webpack-plugin",
-  "version": "0.0.5",
+  "version": "1.0.1",
   "author": {
     "name": "Alexander Mazuruk"
   },
@@ -15,7 +15,6 @@
     "url": "https://github.com/k-paxian/asset-redirect-webpack-plugin.git"
   },
   "dependencies": {
-    "minimatch": "^3.0.3"
   },
   "description": "WebPack Assets Redirect Plugin",
   "keywords": [
