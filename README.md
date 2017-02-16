@@ -45,3 +45,12 @@ new redirectAssetPathPlugin('../resources/node_modules/ag-grid-ng2/**/*.js', '..
  Asset deleted [  dummy.*  ]  dummy.bundle.js  =>  /dev/null 
  Asset deleted [  **/webpack.dummy*  ]  assets\main\ts\bundles\webpack.dummy.js  =>  /dev/null
 ```
+
+[travis-badge]: https://travis-ci.org/asset-redirect-webpack-plugin.svg?branch=master
+[travis-badge-url]: https://travis-ci.org/asset-redirect-webpack-plugin
+[david-badge]: https://david-dm.org/asset-redirect-webpack-plugin.svg
+[david-badge-url]: https://david-dm.org/asset-redirect-webpack-plugin
+[david-dev-badge]: https://david-dm.org/asset-redirect-webpack-plugin/dev-status.svg
+[david-dev-badge-url]: https://david-dm.org/asset-redirect-webpack-plugin?type=dev
+[npm-badge]: https://img.shields.io/npm/v/asset-redirect-webpack-plugin.svg
+[npm-badge-url]: https://www.npmjs.com/package/asset-redirect-webpack-plugin
