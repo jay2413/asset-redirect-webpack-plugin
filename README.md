@@ -1,4 +1,9 @@
-# WebPack Assets Redirect Plugin
+[![Build Status][travis-badge]][travis-badge-url]
+[![Dependency Status][david-badge]][david-badge-url]
+[![devDependency Status][david-dev-badge]][david-dev-badge-url]
+[![npm][npm-badge]][npm-badge-url]
+
+## WebPack Assets Redirect Plugin
 
 Redirect webpack assets to proper folders.
 
@@ -10,7 +15,7 @@ new redirectAssetPathPlugin('../resources/node_modules/ng2-cookies/**/*.js', '..
 new redirectAssetPathPlugin('../resources/node_modules/ag-grid-ng2/**/*.js', '../resources/node_modules/ag-grid-ng2', 'assets/js/ag-grid-ng2'),
 ``` 
 
-# Output
+## Output
  
  ```
  Asset redirected [  ../resources/node_modules/@angular/**/*.js  ]  ..\resources\node_modules\@angular\common\bundles\common.umd.min.js  =>  assets\js\angular\common\bundles\common.umd.min.js 
